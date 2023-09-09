@@ -1,0 +1,6 @@
+.role-edit-container {
+  width: 100%;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  padding: 20px;
+}

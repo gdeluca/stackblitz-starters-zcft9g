@@ -1,0 +1,12 @@
+<!-- navigation.component.html -->
+<nav class="mobile-menu">
+<button mat-icon-button (click)="toggleMenu()">
+  <mat-icon>menu</mat-icon>
+</button>
+<ul *ngIf="menuOpen">
+  <li>
+    <a routerLink="/roles-list">Roles List</a>
+  </li>
+  <!-- Add more menu items as needed -->
+</ul>
+</nav>

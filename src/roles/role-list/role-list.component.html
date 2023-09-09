@@ -1,0 +1,32 @@
+<div class="role-list-container">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Role List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort>
+        <!-- Define columns here -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+          <mat-cell *matCellDef="let role">{{ role.id }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+          <mat-cell *matCellDef="let role">{{ role.name }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="permissions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Permissions</mat-header-cell>
+          <mat-cell *matCellDef="let role">{{ role.permissions.join(', ') }}</mat-cell>
+        </ng-container>
+        <!-- Add more columns as needed -->
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[10, 25, 50]" [pageSize]="pageSize" [pageIndex]="pageIndex" [length]="totalRoles"
+      (page)="onPageChange($event)"></mat-paginator>
+  </mat-card-content>
+</mat-card>
+</div>
